@@ -18,7 +18,6 @@ import { BlogsComponent } from './components/blogs/blogs.component';
 import { NewBlogComponent } from './components/new-blog/new-blog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from "@angular/common/http";
-import { FooterComponent } from './components/footer/footer.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -33,7 +32,6 @@ import { LoaderComponent } from './components/loader/loader.component';
     HeaderComponent,
     BlogsComponent,
     NewBlogComponent,
-    FooterComponent,
     BlogDetailsComponent,
     LoaderComponent
   ],
