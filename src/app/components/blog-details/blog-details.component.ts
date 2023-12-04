@@ -19,6 +19,7 @@ export class BlogDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.http.fetchSingleItem(id).subscribe((res: any) => {
       this.blog = res;
+      this.blog.time = this.convertTime(res.time);
       this.loader.close();
     }, (err: any) => {
       this.loader.close();
@@ -28,5 +29,25 @@ export class BlogDetailsComponent implements OnInit {
         horizontalPosition: 'right'
       })
     })
+  }
+
+  convertTime(data: any): string {
+    const time = data.split(':');
+    let text;
+
+    if (time[0] <= 12) {
+      if (time[0] === 12) {
+        text = 'PM';
+      } else {
+        text = "AM"
+      }
+    } else {
+      const hour = time[0] - 12;
+      const formattedhour = hour.toString().padStart(2, '0');
+      time.splice(0, 1, formattedhour);
+      text = "PM";
+    }
+    const forMattedTime = `${time.join(':')} ${text}`;
+    return forMattedTime;
   }
 }
