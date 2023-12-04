@@ -4,11 +4,27 @@
             <h3>Add New blog</h3>
             <mat-form-field appearance="outline">
                 <mat-label>Blog title</mat-label>
-                <input type="text" matInput formControlName="title">
+                <input type="text" matInput formControlName="title" (input)="removeWhiteSpace($event)">
+                <mat-error
+                    *ngIf="blogForm.controls['title'].touched && blogForm.controls['title'].dirty && blogForm.controls['title'].hasError('required')">
+                    Required
+                </mat-error>
+                <mat-error
+                    *ngIf="blogForm.controls['title'].touched && blogForm.controls['title'].dirty && blogForm.controls['title'].hasError('minlength')">
+                    Minimum 10 characters required
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Blog description</mat-label>
-                <textarea rows="4" formControlName="description" matInput></textarea>
+                <textarea rows="4" formControlName="description" (input)="removeWhiteSpace($event)" matInput></textarea>
+                <mat-error
+                    *ngIf="blogForm.controls['description'].touched && blogForm.controls['description'].dirty && blogForm.controls['description'].hasError('required')">
+                    Required
+                </mat-error>
+                <mat-error
+                    *ngIf="blogForm.controls['description'].touched && blogForm.controls['description'].dirty && blogForm.controls['description'].hasError('minlength')">
+                    Minimum 30 characters required
+                </mat-error>
             </mat-form-field>
             <input type="file" accept="image/png, image/gif, image/jpeg" (change)="updateFileValue($event)"
                 formControlName="file" class="attachment-input">

@@ -26,9 +26,9 @@ export class NewBlogComponent {
   fetchFormValue(): void {
     this.loader.show();
     const formValues = {
-      title: this.blogForm.value.title,
-      description: this.blogForm.value.description,
-      file: this.attachmentValue
+      title: this.blogForm.value.title.trim(),
+      description: this.blogForm.value.description.trim(),
+      file: this.attachmentValue,
     };
 
     const date = new Date();
@@ -62,5 +62,10 @@ export class NewBlogComponent {
 
   updateFileValue(e: any): void {
     this.attachmentValue = e.target.files[0];
+  }
+
+
+  removeWhiteSpace(e: any) {
+    e.target.value = e.target.value.replaceAll("  ", " ");
   }
 }
