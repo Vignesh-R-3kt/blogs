@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-blog',
@@ -14,7 +15,7 @@ export class NewBlogComponent {
   blogForm: any;
   attachmentValue: any;
 
-  constructor(private fb: FormBuilder, private http: ApiService, private loader: LoaderService, private router: Router) {
+  constructor(private fb: FormBuilder, private http: ApiService, private loader: LoaderService, private router: Router, private snackbar: MatSnackBar) {
     this.blogForm = fb.group({
       title: ["", [Validators.required, Validators.minLength(10)]],
       description: ["", [Validators.required, Validators.minLength(30)]],
@@ -43,7 +44,19 @@ export class NewBlogComponent {
 
     this.http.postNewBlog(formData).subscribe((res: any) => {
       this.loader.close();
-      this.router.navigate(['/home/blogs'])
+      this.router.navigate(['/home/blogs']);
+      this.snackbar.open('New blog added successfully', 'ok', {
+        duration: 4000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right'
+      })
+    }, (err: any) => {
+      this.loader.close();
+      this.snackbar.open('Something went wrong, please try again', 'close', {
+        duration: 4000,
+        verticalPosition: "top",
+        horizontalPosition: 'right'
+      })
     })
   }
 

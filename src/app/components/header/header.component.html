@@ -1,11 +1,11 @@
 <div class="container">
     <div class="wrapper">
-        <a class="brand" routerLink="/home">LOREM</a>
+        <a class="brand" routerLink="/home">Blogs</a>
         <div class="profile-container">
             <div class="img-wrapper">
                 <span>{{userDetail.name}}</span>
                 <button mat-button [matMenuTriggerFor]="menu">
-                    <img [src]="userDetail.picture"></button>
+                    <img [src]="userDetail.picture" referrerpolicy="no-referrer"></button>
             </div>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="logout()">Logout</button>

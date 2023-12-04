@@ -1,13 +1,13 @@
 <div class="container">
     <div class="wrapper">
         <form (submit)="fetchFormValue()" [formGroup]="blogForm">
-            <h3>lorem ipsum</h3>
+            <h3>Add New blog</h3>
             <mat-form-field appearance="outline">
-                <mat-label>lorem</mat-label>
-                <input type="text" matInput formControlName="title" placeholder="Ex. pat@example.com">
+                <mat-label>Blog title</mat-label>
+                <input type="text" matInput formControlName="title">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>lorem</mat-label>
+                <mat-label>Blog description</mat-label>
                 <textarea rows="4" formControlName="description" matInput></textarea>
             </mat-form-field>
             <input type="file" accept="image/png, image/gif, image/jpeg" (change)="updateFileValue($event)"
