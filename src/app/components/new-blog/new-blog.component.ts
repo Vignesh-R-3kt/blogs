@@ -25,8 +25,6 @@ export class NewBlogComponent {
 
     const user = JSON.parse(sessionStorage.getItem('userInfo') || "");
     this.userInfo = user.additionalUserInfo.profile;
-    console.log(this.userInfo);
-
   }
 
   fetchFormValue(): void {
