@@ -14,13 +14,19 @@ export class NewBlogComponent {
 
   blogForm: any;
   attachmentValue: any;
+  userInfo: any;
 
   constructor(private fb: FormBuilder, private http: ApiService, private loader: LoaderService, private router: Router, private snackbar: MatSnackBar) {
     this.blogForm = fb.group({
       title: ["", [Validators.required, Validators.minLength(10)]],
       description: ["", [Validators.required, Validators.minLength(30)]],
       file: ["", Validators.required]
-    })
+    });
+
+    const user = JSON.parse(sessionStorage.getItem('userInfo') || "");
+    this.userInfo = user.additionalUserInfo.profile;
+    console.log(this.userInfo);
+
   }
 
   fetchFormValue(): void {
@@ -29,6 +35,8 @@ export class NewBlogComponent {
       title: this.blogForm.value.title.trim(),
       description: this.blogForm.value.description.trim(),
       file: this.attachmentValue,
+      userName: this.userInfo.name,
+      userId: this.userInfo.id
     };
 
     const date = new Date();
@@ -41,6 +49,8 @@ export class NewBlogComponent {
     formData.append('imageUrl', formValues.file);
     formData.append('date', today);
     formData.append('time', time);
+    // formData.append('userName', formValues.userName);
+    // formData.append('userId', formValues.userId);
 
     this.http.postNewBlog(formData).subscribe((res: any) => {
       this.loader.close();
