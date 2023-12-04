@@ -1,0 +1,18 @@
+<div class="btn-wrapper">
+    <button mat-mini-fab color="primary" routerLink="/home/new-blog"
+        matTooltip="Add new Blog"><mat-icon>add</mat-icon></button>
+</div>
+
+<ul class="blogs-wrapper">
+    <li class="blog" *ngFor="let blog of blogsList">
+        <div class="img-wrapper">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq1qC7qPtMAOUR3-ZQsafgfhwmMoyVd5f1hQ&usqp=CAU"
+                alt="blog-img">
+        </div>
+        <span class="time">{{ blog.date }}</span>
+        <h2 class="title">{{blog.title}}</h2>
+        <p>{{ blog.description }}</p>
+        <a class="btn" [routerLink]="['/home/blog-details', blog.id]">View blog ></a>
+    </li>
+</ul>
+<div class="empty"></div>

@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Monoton&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-bottom: 48px;
+  min-height: 100vh;
+}
+
+// Additional
+.mdc-snackbar__surface {
+  margin-top: 50px;
+}

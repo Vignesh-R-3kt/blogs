@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="wrapper">
+        <form (submit)="fetchFormValue()" [formGroup]="blogForm">
+            <h3>lorem ipsum</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>lorem</mat-label>
+                <input type="text" matInput formControlName="title" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>lorem</mat-label>
+                <textarea rows="4" formControlName="description" matInput></textarea>
+            </mat-form-field>
+            <input type="file" accept="image/png, image/gif, image/jpeg" (change)="updateFileValue($event)"
+                formControlName="file" class="attachment-input">
+            <button mat-raised-button color="primary" [disabled]="!blogForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="empty"> </div>
