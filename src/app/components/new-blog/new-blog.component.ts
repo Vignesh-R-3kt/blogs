@@ -64,7 +64,6 @@ export class NewBlogComponent {
     this.attachmentValue = e.target.files[0];
   }
 
-
   removeWhiteSpace(e: any) {
     e.target.value = e.target.value.replaceAll("  ", " ");
   }
