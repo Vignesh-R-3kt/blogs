@@ -23,7 +23,14 @@
         font-size: 48px;
         width: unset;
         height: unset;
-        animation: color 12s linear infinite;
+
+        &:first-child {
+          animation: rotateRight 12s linear alternate-reverse infinite;
+        }
+
+        &:last-child {
+          animation: rotateLeft 12s linear alternate-reverse infinite;
+        }
       }
 
       span {
@@ -34,6 +41,7 @@
           text-transform: uppercase;
           font-size: 42px;
           letter-spacing: 3px;
+          font-family: "Monoton", sans-serif;
         }
       }
     }
@@ -75,7 +83,7 @@
   }
 }
 
-@keyframes color {
+@keyframes rotateRight {
   0% {
     transform: rotate(0);
     color: #fbc02d;
@@ -88,6 +96,23 @@
   }
   100% {
     transform: rotate(360deg);
+    color: #1565c0;
+  }
+}
+
+@keyframes rotateLeft {
+  0% {
+    transform: rotate(0);
+    color: #fbc02d;
+  }
+  25% {
+    color: #e53935;
+  }
+  50% {
+    color: #4caf50;
+  }
+  100% {
+    transform: rotate(-360deg);
     color: #1565c0;
   }
 }

@@ -1,11 +1,40 @@
 .btn-wrapper {
-  padding-top: 24px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  padding-top: 16px;
+  margin-bottom: 18px;
+
+  .left-content {
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #cccccc;
+      transform: translateY(18px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+
+  .right-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+
+    h3 {
+      margin: 0;
+      font-weight: 500;
+      color: #3f51b5;
+      font-size: 14px;
+    }
+  }
 }
 
 .blogs-wrapper {
-  margin-top: 28px;
   background: #f0f1f2;
   padding: 24px 32px;
   border-radius: 12px;
